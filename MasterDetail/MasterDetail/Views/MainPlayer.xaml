@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="MasterDetail.Views.MainPlayer">
+    <ContentPage.Content>
+        <StackLayout
+            HeightRequest="100"
+            WidthRequest="100"
+            Padding="20">
+            <Image Source="{Binding Image}"
+                   HeightRequest="200"/>
+            <Label Text="{Binding Band}"
+                   x:Name="Band"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   Font="30"/>
+            <Label Text="{Binding Name}"
+                   x:Name="Track"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   Font="20"/>
+            <Grid
+                HeightRequest="200"
+                WidthRequest="200"
+                Margin="40">
+                <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurfacePrev"
+                                   HorizontalOptions="StartAndExpand"
+                                   HeightRequest="200">
+                    <skia:SKCanvasView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrevButtonPressed" />
+                    </skia:SKCanvasView.GestureRecognizers>
+                </skia:SKCanvasView>
+                <skia:SKCanvasView x:Name="PlayButton" PaintSurface="OnCanvasViewPaintSurface"
+                                   HorizontalOptions="Center">
+                    <skia:SKCanvasView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPlayButtonPressed" />
+                    </skia:SKCanvasView.GestureRecognizers>
+                    </skia:SKCanvasView>
+                <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurfaceNext"
+                                   HorizontalOptions="EndAndExpand">
+                    <skia:SKCanvasView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNextButtonPressed" />
+                    </skia:SKCanvasView.GestureRecognizers>
+                </skia:SKCanvasView>
+            </Grid>
+            <ProgressBar x:Name="progress" Progress="1"
+                         WidthRequest="100"
+                         VerticalOptions="Fill"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

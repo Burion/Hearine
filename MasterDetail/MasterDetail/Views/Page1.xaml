@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d ="clr-namespace:MasterDetail.Services"
+             xmlns:imgcrop="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.ImageCropView"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="MasterDetail.Views.Page1"
+             Title="{Binding Name}">
+    <ContentPage.ToolbarItems>
+                <ToolbarItem Text="Add" Clicked="AddTracksPage"/>
+     </ContentPage.ToolbarItems> 
+
+    <ContentPage.Content>
+        <StackLayout
+            HeightRequest="100">
+            <BoxView
+                HeightRequest="1"
+                WidthRequest="100"
+                BackgroundColor="Black">
+            </BoxView>
+            <ScrollView>
+                <ScrollView.Content>
+                    <StackLayout>
+                        <Image Source="{Binding Image}"/>
+                        <ListView x:Name="Songs"
+                        ItemsSource="{Binding Tracks}"
+                        VerticalOptions="FillAndExpand"
+                        HasUnevenRows="true"
+                        IsPullToRefreshEnabled="true"
+                        CachingStrategy="RecycleElement"
+                        ItemSelected="OnItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout
+                                Orientation="Horizontal"
+                                 HeightRequest="50"
+                                Margin="15">
+                                            <Image Source="ACDC.jpg"
+                                       Aspect="AspectFill"
+                                       HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding Band}" 
+                                HorizontalOptions="Fill"
+                                LineBreakMode="NoWrap" 
+                                       VerticalOptions="Center"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                                 FontAttributes="Bold"/>
+                                            <Label Text="{Binding Name}"
+                                HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                            <Label Text="5:45"
+                                HorizontalOptions="EndAndExpand"
+                                       VerticalOptions="Center"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="14" />
+
+
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView.Content>
+            </ScrollView>
+            <StackLayout
+                x:Name="DownStrip"
+                BindingContext="{Binding StatusManager}"
+                BackgroundColor="White"
+                HeightRequest="50"
+                Orientation="Horizontal">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="Print"
+                NumberOfTapsRequired="1"
+             />
+                </StackLayout.GestureRecognizers>
+                <Image
+                    BindingContext="{Binding Source={x:Static d:StatusManager.CurrentAlbum}}"
+                    Source="{Binding Image}"
+                    Aspect="AspectFit"
+                    HorizontalOptions="StartAndExpand"/>
+                <Label
+                    BindingContext="{Binding Source ={x:Static d:StatusManager.currentTrack}}"
+                    Text="{Binding Band}" 
+                                HorizontalOptions="StartAndExpand"
+                                LineBreakMode="NoWrap" 
+                                       VerticalOptions="Center"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                                 FontAttributes="Bold"/>
+                <Label 
+                    BindingContext="{Binding Source ={x:Static d:StatusManager.currentTrack}}"
+                    Text="{Binding Name}" 
+                                HorizontalOptions="StartAndExpand"
+                                LineBreakMode="NoWrap" 
+                                       VerticalOptions="Center"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"/>
+                <ImageButton Source="play.png"
+                                       HeightRequest="30"
+                             BackgroundColor="White"
+                                       HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
