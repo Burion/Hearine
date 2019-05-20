@@ -18,7 +18,7 @@ namespace MasterDetail.Views
         {
             get
             {
-                return isAlbum ? DataStore.albums.Cast<ITrackList>().ToList() : DataStore.playlists.Cast<ITrackList>().ToList();
+                return isAlbum ? DataStore.Albums.Cast<ITrackList>().ToList() : DataStore.Playlists.Cast<ITrackList>().ToList();
             }
         }
         public AlbumsGrid(bool isAlbum)
@@ -29,7 +29,6 @@ namespace MasterDetail.Views
 
         public void Refresh()
         {
-            Console.WriteLine(TrackList.Count);
             grid.Children.Clear();
             int x = 0;
             int y = 0;
@@ -43,7 +42,7 @@ namespace MasterDetail.Views
                 var tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += (s, e) => {
                     Image img = (Image)s;
-                    List<ITrackList> tracksSequence = isAlbum ? DataStore.albums.Cast<ITrackList>().ToList() : DataStore.playlists.Cast<ITrackList>().ToList();
+                    List<ITrackList> tracksSequence = isAlbum ? DataStore.Albums.Cast<ITrackList>().ToList() : DataStore.Playlists.Cast<ITrackList>().ToList();
                     ITrackList alb = tracksSequence.Where(a => a.Image == album.Image).First();
                     StatusManager.CurrentAlbum = alb;
                     Navigation.PushAsync(new Page1(alb));

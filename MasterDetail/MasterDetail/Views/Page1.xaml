@@ -36,7 +36,9 @@
                                 Orientation="Horizontal"
                                  HeightRequest="50"
                                 Margin="15">
-                                            <Image Source="ACDC.jpg"
+                                            <Image 
+                                                BindingContext="{x:Static d:StatusManager.CurrentAlbum}"
+                                                Source="{Binding Image}"
                                        Aspect="AspectFill"
                                        HorizontalOptions="StartAndExpand"/>
                                             <Label Text="{Binding Band}" 

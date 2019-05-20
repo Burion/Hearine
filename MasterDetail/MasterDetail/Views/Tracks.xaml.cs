@@ -23,7 +23,7 @@ namespace MasterDetail.Views
 		}
         void LoadTracks()
         {
-            foreach(StrippedTrackElement track in DataStore.tracks)
+            foreach(StrippedTrackElement track in DataStore.Tracks)
             {
                 StackLayout stack = new StackLayout
                 {
@@ -42,7 +42,7 @@ namespace MasterDetail.Views
                     StackLayout stack_ = (StackLayout)s;
                     Label label = stack_.Children.Where(x => x is Label)
                         .Where(l => ((Label)l).FontAttributes != FontAttributes.Bold).First() as Label;
-                    var checkedSong = DataStore.tracks.Where(t => t.Name == label.Text).First();
+                    var checkedSong = DataStore.Tracks.Where(t => t.Name == label.Text).First();
 
                     if (isInList(checkedSong.Name))
                     {

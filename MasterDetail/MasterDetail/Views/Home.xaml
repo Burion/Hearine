@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetail.Views.Home">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome home!"
+                   FontSize="30"
+                FontAttributes="Bold"
+                   Margin="10"/>
+            <ScrollView
+                Orientation="Horizontal"
+                HeightRequest="200"
+                WidthRequest="600">
+
+                <ScrollView.Content>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HeightRequest="200"
+                        Margin="10">
+                        <Image Source="ROLLINGSTONES.jpg"
+                               WidthRequest="200"/>
+                        <Image Source="ROLLINGSTONES.jpg"
+                               WidthRequest="200"/>
+                        <Image Source="ROLLINGSTONES.jpg"
+                               WidthRequest="200"/>
+
+                    </StackLayout>
+                </ScrollView.Content>
+
+            </ScrollView>
+            
+            <ScrollView>
+                <ScrollView.Content>
+                    <StackLayout>
+                    <Label Text="Popular albums"
+                           FontSize="30"
+                           FontAttributes="Bold"/>
+                    <Grid x:Name="grid"
+                    HeightRequest="320"
+              Padding="20">
+                
+                </Grid>
+                        <Label Text="Popular playlists"
+                           FontSize="30"
+                           FontAttributes="Bold"/>
+                        
+                        <Grid x:Name="gridPlaylists"
+
+                          Padding="20">
+
+                        </Grid>
+                    </StackLayout>
+                </ScrollView.Content>
+                    
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

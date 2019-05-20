@@ -32,14 +32,14 @@ namespace MasterDetail.Views
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)MenuItemType.About:
-                        List<Album> albums = DataStore.albums;
+                        List<Album> albums = DataStore.Albums;
                         MenuPages.Add(id, new NavigationPage(new AlbumsGrid(true)));
                         break;
                     case (int)MenuItemType.Albums:
-                        MenuPages.Add(id, new NavigationPage(new Page1()));
+                        MenuPages.Add(id, new NavigationPage(new Home()));
                         break;
                     case (int)MenuItemType.Playlists:
-                        List<Playlist> playlists = DataStore.playlists; 
+                        List<Playlist> playlists = DataStore.Playlists; 
                         MenuPages.Add(id, new NavigationPage(new AlbumsGrid(false)));
                         break;
 

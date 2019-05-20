@@ -18,11 +18,12 @@ namespace MasterDetail.Models
             Band = band;
             Path = path;
         }
-
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Band { get; set; }
+        public int Length { get; set; }
         //public Image Image { get; set; }
         public string Path { get; set; }
-
+        
     }
 }

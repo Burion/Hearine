@@ -43,7 +43,7 @@ namespace MasterDetail.Views
 
         public void Refresh()
         {
-            BindingContext = DataStore.playlists.Where(p => p.Band == BandName).First();
+            BindingContext = DataStore.Playlists.Where(p => p.Band == BandName).First();
         }
 
         public async void Print(object sender, EventArgs e)
@@ -51,6 +51,7 @@ namespace MasterDetail.Views
             await Navigation.PushModalAsync(new NavigationPage(new MainPlayer()));
         }
         
+
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as StrippedTrackElement;
