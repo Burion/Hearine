@@ -22,7 +22,8 @@ namespace MasterDetail.Views
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Albums, Title="Albums" },
                 new HomeMenuItem {Id = MenuItemType.Playlists, Title="Playlists" },
-                new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" }
+                new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
+                new HomeMenuItem {Id = MenuItemType.Search, Title="Search" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

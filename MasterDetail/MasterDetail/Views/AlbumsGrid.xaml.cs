@@ -55,7 +55,7 @@ namespace MasterDetail.Views
                 y = x == 1 ? y + 1 : y;
                 x = x == 1 ? 0 : 1;
             }
-            scroll.HeightRequest = (grid.Children.Count / 2) * 165 + 165 * (grid.Children.Count % 2) + 10;
+            scroll.HeightRequest = (grid.Children.Count / 2) * 165;
         }
 
         protected override void OnAppearing()

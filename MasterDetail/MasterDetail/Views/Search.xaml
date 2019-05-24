@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterDetail.Views.Search">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Padding="30">
+                <Label Text="Albums"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label Text="|"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label Text="Bands"
+                       FontSize="20"
+                       FontAttributes="None"/>
+                <Label Text="|"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label Text="Users"
+                       FontSize="20"
+                       FontAttributes="None"/>
+                <Label Text="|"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label Text="Songs"
+                       FontSize="20"
+                       FontAttributes="None"/>
+            </StackLayout>
+            <StackLayout 
+                Padding="40"
+                WidthRequest="200">
+                <Editor x:Name ="Input" Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
+                <Button Text="Search" Clicked="ExecuteQuery"/>
+            </StackLayout>
+            <StackLayout x:Name="ResultStack">
+                
+            </StackLayout> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

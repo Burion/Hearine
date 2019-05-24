@@ -21,7 +21,6 @@ namespace MasterDetail.Views
             BindingContext = user;
             this.user = user;
             Refresh();
-
         }
         public void Refresh()
         {

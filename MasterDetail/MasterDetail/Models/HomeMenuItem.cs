@@ -10,7 +10,8 @@ namespace MasterDetail.Models
         About, 
         Albums,
         Playlists,
-        Profile
+        Profile,
+        Search
 
     }
     public class HomeMenuItem

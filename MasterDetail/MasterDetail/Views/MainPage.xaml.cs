@@ -45,6 +45,9 @@ namespace MasterDetail.Views
                     case (int)MenuItemType.Profile:
                         MenuPages.Add(id, new NavigationPage(new Profile(DataStore.Users.First())));
                         break;
+                    case (int)MenuItemType.Search:
+                        MenuPages.Add(id, new NavigationPage(new Search()));
+                        break;
 
                 }
             }
