@@ -10,6 +10,11 @@
             <Label Text="{Binding Name}"
                    FontSize="30"
                    HorizontalOptions="Center"/>
+
+            <Label Text="{Binding Mail}"
+                   FontSize="20"
+                   HorizontalOptions="Start"/>
+            
             <Button Text="Follow"/>
 
             <ScrollView

@@ -33,7 +33,7 @@ namespace MasterDetail.Views
 
         public Page1 ()
 		{
-            InitializeComponent();
+            InitializeComponent();   
         }
 
         public void AddTracksPage(object sender, EventArgs e)

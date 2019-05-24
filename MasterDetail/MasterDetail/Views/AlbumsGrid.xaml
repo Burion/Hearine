@@ -9,10 +9,10 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <ScrollView
+            <ScrollView x:Name="scroll"
                 NavigationPage.HasNavigationBar="true">
                 <ScrollView.Content
-                HeightRequest="500">
+                HeightRequest="0">
             <Grid x:Name="grid"
 
               Padding="20">

@@ -13,9 +13,11 @@ namespace MasterDetail.Services
         public static MediaPlayer mediaPlayer { get; set; }
         public static StrippedTrackElement currentTrack { get; set; }
         public static ITrackList CurrentAlbum { get; set; }
+        public static User CurrentUser { get; set; }
 
         static StatusManager()
         {
+            CurrentUser = DataStore.Users[0];
             mediaPlayer = new MediaPlayer();
             currentTrack = new StrippedTrackElement("—", "—", "—");
             CurrentAlbum = new Album("—", "—", "—", 1000, new List<StrippedTrackElement>());

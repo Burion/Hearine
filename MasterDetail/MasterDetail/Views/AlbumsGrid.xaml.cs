@@ -14,17 +14,20 @@ namespace MasterDetail.Views
     public partial class AlbumsGrid : ContentPage
     {
         bool isAlbum;
+        private User user;
+
         public List<ITrackList> TrackList
         {
             get
             {
-                return isAlbum ? DataStore.Albums.Cast<ITrackList>().ToList() : DataStore.Playlists.Cast<ITrackList>().ToList();
+                return isAlbum ? DataStore.Albums.Cast<ITrackList>().ToList() : StatusManager.CurrentUser.Playlists.Cast<ITrackList>().ToList();
             }
         }
-        public AlbumsGrid(bool isAlbum)
+        public AlbumsGrid(bool isAlbum, User user)
         {
             InitializeComponent();
             this.isAlbum = isAlbum;
+            this.user = user;
         }
 
         public void Refresh()
@@ -42,7 +45,7 @@ namespace MasterDetail.Views
                 var tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += (s, e) => {
                     Image img = (Image)s;
-                    List<ITrackList> tracksSequence = isAlbum ? DataStore.Albums.Cast<ITrackList>().ToList() : DataStore.Playlists.Cast<ITrackList>().ToList();
+                    List<ITrackList> tracksSequence = isAlbum ? DataStore.Albums.Cast<ITrackList>().ToList() : user.Playlists.Cast<ITrackList>().ToList();
                     ITrackList alb = tracksSequence.Where(a => a.Image == album.Image).First();
                     StatusManager.CurrentAlbum = alb;
                     Navigation.PushAsync(new Page1(alb));
@@ -52,7 +55,7 @@ namespace MasterDetail.Views
                 y = x == 1 ? y + 1 : y;
                 x = x == 1 ? 0 : 1;
             }
-
+            scroll.HeightRequest = (grid.Children.Count / 2) * 165 + 165 * (grid.Children.Count % 2) + 10;
         }
 
         protected override void OnAppearing()

@@ -18,7 +18,8 @@ namespace MasterDetail.Services
         //public static JsonSerializer jsonSerializer = JsonSerializer.Create();
         static DataStore()
         {
-            Users.Add(new User(1, "Vlados", "123345", "avatar1.jpg", "vladislavburyak@gmail.com"));
+            User user = new User(1, "Vlados", "123345", "avatar1.jpg", "vladislavburyak@gmail.com");
+            DataManager.RegisterUser(user);
             Tracks = new List<StrippedTrackElement>
             {
                 new StrippedTrackElement("Highway To Hell", "AC/DC", "01.mp3"),

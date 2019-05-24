@@ -46,12 +46,16 @@ namespace MasterDetail.Views
                     Navigation.PushAsync(new Page1(alb));
                 };
                 image.GestureRecognizers.Add(tapGestureRecognizer);
-                Label label = new Label
-                {
-                    Text = "Play"
-                };
+
+                //Label label = new Label
+                //{
+                //    Text = "Play",
+                //    FontSize = 20,
+                //    TextColor = Color.White
+                //};
+
                 grid.Children.Add(image, x, y);
-                grid.Children.Add(label, x, y);
+                //grid.Children.Add(label, x, y);
                 y = x == 1 ? y + 1 : y;
                 x = x == 1 ? 0 : 1;
             }
