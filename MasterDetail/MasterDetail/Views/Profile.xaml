@@ -4,10 +4,24 @@
              x:Class="MasterDetail.Views.Profile">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Anduin"
-                   FontSize="30"/>
+
             <Image Source="avatar1.png"
                    HeightRequest="200"/>
+            <Label Text="{Binding Name}"
+                   FontSize="30"
+                   HorizontalOptions="Center"/>
+            <Button Text="Follow"/>
+
+            <ScrollView
+                NavigationPage.HasNavigationBar="true">
+                <ScrollView.Content
+                HeightRequest="500">
+                    <Grid x:Name="grid"
+
+              Padding="20">
+                    </Grid>
+                </ScrollView.Content>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -6,6 +6,10 @@ namespace MasterDetail.Models
 {
     public class User
     {
+        public User()
+        {
+
+        }
         public User(int id, string name, string password, string avatar, string mail)
         {
             Id = id;
@@ -13,6 +17,7 @@ namespace MasterDetail.Models
             Password = password;
             Avatar = avatar;
             Mail = mail;
+            Playlists = new List<Playlist>();
         }
 
         public int Id { get; set; }
@@ -20,6 +25,8 @@ namespace MasterDetail.Models
         public string Password { get; set; }
         public string Avatar { get; set; }
         public string Mail { get; set; }
+        public List<Playlist> Playlists { get; set; }
+        public List<User> Follows = new List<User>();
 
     }
 }

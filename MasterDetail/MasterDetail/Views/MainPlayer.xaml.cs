@@ -25,7 +25,7 @@ namespace MasterDetail.Views
         };
         bool showFill = true;
         CancellationTokenSource source = new CancellationTokenSource();
-
+        
         public MainPlayer ()
 		{
 			InitializeComponent ();    

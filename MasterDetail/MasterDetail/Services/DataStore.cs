@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
 
 namespace MasterDetail.Services
 {
@@ -12,11 +13,12 @@ namespace MasterDetail.Services
         public static List<Album> Albums = new List<Album>();
         public static List<Playlist> Playlists = new List<Playlist>();
         public static List<StrippedTrackElement> Tracks;
-        public static List<User> Users;
+        public static List<User> Users = new List<User>();
         public static List<Band> Bands;
-        public static JsonSerializer jsonSerializer = JsonSerializer.Create();
+        //public static JsonSerializer jsonSerializer = JsonSerializer.Create();
         static DataStore()
         {
+            Users.Add(new User(1, "Vlados", "123345", "avatar1.jpg", "vladislavburyak@gmail.com"));
             Tracks = new List<StrippedTrackElement>
             {
                 new StrippedTrackElement("Highway To Hell", "AC/DC", "01.mp3"),
@@ -69,6 +71,19 @@ namespace MasterDetail.Services
             Playlist playlist;
             playlist = new Playlist(Tracks.Where(x => x.Band == "AC/DC").ToList(), "NewBand", "MyPlaylist", "Playlist.jpg", "My description");
             Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Playlists.Add(playlist);
+            Users[0].Playlists.Add(playlist);
+            Users[0].Playlists.Add(playlist);
+            Users[0].Playlists.Add(playlist);
+            Users[0].Playlists.Add(playlist);
+            Users[0].Playlists.Add(playlist);
         }
 
         public static void AddPlaylist(Playlist playlist)

@@ -29,7 +29,7 @@ namespace MasterDetail.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        MenuPages.Add(id, new NavigationPage(new Profile(new User())));
                         break;
                     case (int)MenuItemType.About:
                         List<Album> albums = DataStore.Albums;
@@ -41,6 +41,9 @@ namespace MasterDetail.Views
                     case (int)MenuItemType.Playlists:
                         List<Playlist> playlists = DataStore.Playlists; 
                         MenuPages.Add(id, new NavigationPage(new AlbumsGrid(false)));
+                        break;
+                    case (int)MenuItemType.Profile:
+                        MenuPages.Add(id, new NavigationPage(new Profile(DataStore.Users.First())));
                         break;
 
                 }
